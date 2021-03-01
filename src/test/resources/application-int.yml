@@ -33,9 +33,9 @@ loyalty:
     email: ${EMAIL_USER}
     password: ${EMAIL_PASSWORD}
   auth-api-get-token:
-    uri: https://oauth-dev.airmiles.ca/oauth/token
-    client_id: W91kNFPpJWJ99k94JOVndyW9d+OUfEjVwJj8mdZgy3XUOdvTz0eHq9WsJUug9Dzt1pSenz4dLlghtEYt4eml1fQfhYuW10IHTzCjCnNZ+8dFaec19h7+X5JWxe7nDeqXvrUi4q6rfepuF/2BSKNtSCe58TbSL4slToi+1jKCN/8IvnXeH4L53ZfRWXs15qPyv3UEIFwWtiTjUbeDZvNps9N0/h/MxK6nKMM6XCPzZXM2QlMjssOxC1kfJ/Tm6PsZLmpSf06D7tP44/ZQJ2xXrxR+mwVZ37LuDeWjho/5GArDb/MlB6wy1Qt3wvVIke1csykrAqDolTQw8VrTeyQSjQ==
-    client_secret: HAP6+wQUZUdd05XxLKx6a/NeKpjgQh9ePoFIEol/5UBhGhist28735VR2wN/DSOCOIP9r2PcE3h3elBQ8HegFZZdiF53SbDEi1Njbj2wvXkGRc73b6CUEs+wZRrEHy6+xMP7uY/z75hB51i9ymRQq/5X8Beied92Nff9QjJejjQl+MnIsgDr7gr5LRFtfgKx9wrZ02BsrJ+3QWiwgkC2cNG17qsMESZQbFTd3zIqB2TnkX54Fa73Lx3+h5OdlpI9i/RK2W3QSchkecI0GHFxX/wttzvaQPRt0cTmxq6Sb56Jc/YpCHMF10hF7bS/rx3K2FAYmif/aDrhQUEvGB/Ykg==
+    uri: https://DIfferent_URL
+    client_id: Different
+    client_secret: DifferemtAsWell
 
 logging:
   level:

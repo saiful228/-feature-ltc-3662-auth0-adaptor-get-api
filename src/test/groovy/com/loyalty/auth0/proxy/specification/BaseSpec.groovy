@@ -1,8 +1,12 @@
 package com.loyalty.auth0.proxy.specification
 
 import com.loyalty.auth0.proxy.TestApplication
+import com.loyalty.auth0.proxy.components.restclient.gettoken.AuthResponse
+import com.loyalty.auth0.proxy.components.restclient.gettoken.GetTokenClient
 import com.loyalty.auth0.proxy.components.util.Logger
 import com.loyalty.auth0.proxy.components.validator.BaseValidator
+import org.apache.http.HttpStatus
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 import spock.lang.Specification
@@ -11,18 +15,16 @@ import spock.lang.Specification
 @SpringBootTest(classes = TestApplication)
 class BaseSpec extends Specification {
 
+    @Autowired
+    GetTokenClient getTokenClient
 
     def "Our first Try" () {
-        given: "A is 1"
-        int a= 1
-        Logger.logMessage("A = 1")
-        and: "B is 1"
-        int b = 1
-        Logger.logMessage("B = 1")
-        when: "we we add A and B"
-        Logger.logMessage("C = ${a.toString()} + ${b.toString()}")
-        int c= a + b
-        then: "Results equals to 2"
-        BaseValidator.validateNumericValues(c, 3, "Total of A + B")
+        given: "Get Token Client is instantiated"
+        when: "Get Token"
+        AuthResponse response = getTokenClient.getToken()
+        then: "Success code is returned"
+        BaseValidator.validateNumericValues(response.getStatus(), HttpStatus.SC_OK, "Response Status")
+        and: "Response contains token"
+        response.getAccessToken().length() > 0
     }
 }
