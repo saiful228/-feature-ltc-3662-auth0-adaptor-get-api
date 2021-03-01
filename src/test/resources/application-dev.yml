@@ -1,0 +1,48 @@
+# ===============================
+# = DATA SOURCE
+# ===============================
+# Set here configurations for the database connection
+#https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/java-rds.html#java-rds-tomcat
+#finance.datasource.url=jdbc:postgresql://localhost:8081/financesor?autoConnect=true&sslmode=verify-full&sslrootcert=/opt/rds-certs/rds-combined-ca-bundle.pem
+#finance.datasource.username=postgres
+#finance.datasource.password=postgres
+server:
+  port: 8218
+  servlet:
+    context-path: /sit
+
+spring:
+  application:
+    name: auth0-profile-management-test
+    http:
+      encoding:
+        charset: UTF-8
+        enabled: true
+        force: true
+  datasource:
+    celo:
+      url: jdbc:mysql://int2.celo.db.loyalty.com:3306/cpm?autoConnect=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: HCArhnLT4T4y4oTEdChqjUoAxdmBAZBFbjyj0J4tywKKgM15mIKP9tWpb64DgiBwEAKOWXoHbKmA9W0aUUPTqzkx1tz1mdTN1/TyeawV6in1Mt9a6PAsySE73NyihbQwunvNjfa0L0BoIHQcUtTmtv3GdWI6tZgkjYp4PPd2if6gjrpGUJ0D/j7B+r/AI2LZHev3NqaSJ8Q28x9QZg3MMEUFSq9Y+3RDqZvJU6cBwpC3l9qdvTFJCbBrjkLQ9AGRsG+0snCe6mVTQUf8I1DBfHJmAPWXSrrl1knKKCNcLMCldzltmQ+dlAQMsINkqyCRBcRoo2VGa+1RocyY3Bbf+w==
+      password: NSno96Hv1uJ0fwj/4/nNzsxLzhW4TmAY+PyoL7rO13RImeMIQtbW0wQsXVu0oV0DZD4DSMdfoRkhMFtmiFh6mVXDqWtobvaf6+9hB4KwAjpBFvbCoRquF/ztlwpa4xGE1YMGm0pw2LIQJAq4HUsAmTr+imK7Layuz6thY4e3Ilo0SWiwn3qJzwkihOdZhNLnsn1tfVqLBsCwEIPlS80inVxky7wbTV5WzsXOYj9D4lEbxUwrikFMzL0oNYi7skaWdv3oRmbTu+R4PzNEdtLeJNkCOX2NfVvp8dwAvb+MGdr+48wCiDTLDZnhefZeiNi8SjseaB5BQlHrtY7aZmlzbA==
+
+loyalty:
+  public_certificate: public_key.der
+  private_certificate: private_key.der
+  email-box:
+    uri: https://outlook.office365.com/ews/Exchange.asmx
+    email: ${EMAIL_USER}
+    password: ${EMAIL_PASSWORD}
+  auth-api:
+    uri: https://airmiles-dev.auth0.com/oauth/token
+    client_id: K8IjxHy4VOb7m1V8WKhcKIgysRLlFV4hDZ7UAbbh6cEkGgPqL1ltPWI3O3Uo1wxYlfxSq1ttjiOsvab94fKete6hCrxNcn9wSZtT3rUEsg7XFCFp+6fQgoPObamEKCEy7dZFCUmpkvFJMtxAHkXNFSZ9zwT3Fn5y3NbxCSVGSSM4NPgUpDrsBSLqYe+YineJbsKqY8FowkwVOLn0HlFOd53slWV0Qoy5TsgxemTF18ztcVMTLCDxYNhJcGQd+regUbCK86kZO6Cv3sllD2nVaoHtpbASYvdTZZ0pssAlLFTIlKLhbltAmtxJqMqcJxDvOtkCmN9bF7BST8k9RurBXQ==
+    client_secret: aS7r0qBqpm7CahK8Wi8j4bn5bWHIJEJtGivp2dm1H3NN8YAFTb0VH1YCAxHwe8ujQkjKTzhVdl/Yt15zkcZaC2EO4BRvr1ShVt4IpROfKL66vZ7zfazfqYH4Dy+MkBQe/l58ZvzbcRcFoL/A1uah2t6ESrCap5pW2sYQNjDk3zMmnX5ek4ci3rWkWdwTvHtO/dBiCxE/pDZ4E/5tzFQBBypNS5urs3jWVvIKCcFxDcIuVWjA8bhwHqjwH/zdaotsbVw+UtJ09Z9x/e/pHSMb8lO+acnI9ZuXkPkpwGRjczSQey0dx23tOI1wF+/b47drjRBrRLR0s1qAs/egGDvYRQ==
+
+logging:
+  level:
+    app: INFO
+    org:
+      springframework: DEBUG
+management:
+  endpoints:
+    web:
+      base-path: /

@@ -1,0 +1,87 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+        gradleReleasePluginVersion = '2.7.0'
+        gradleTestSetPluginVersion = '2.1.1'
+        codehausGroovy = '2.5.6'
+        javaxMail = '1.5.0-b01'
+        slf4j = '1.7.26'
+        logback = '1.2.3'
+        ewsJava = '2.0'
+        appacheCommons = '3.9'
+        springJDBC = '5.2.8.RELEASE'
+        zaxxerHikariCP = '3.4.5'
+        loylatyMemebrServiceClient = '0.0.35'
+        junit = '4.12'
+        spockCore ='1.2-groovy-2.5'
+        spockSpring = '2.0-M3-groovy-3.0'
+        mySQLConnector = '8.0.21'
+        poi = '4.1.2'
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("net.researchgate:gradle-release:${gradleReleasePluginVersion}")
+        classpath("org.unbroken-dome.gradle-plugins:gradle-testsets-plugin:${gradleTestSetPluginVersion}")
+    }
+}
+
+plugins {
+    id 'groovy'
+    id 'java'
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'groovy'
+
+group 'com.loyalty'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: codehausGroovy
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4j
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: logback
+
+    compile group: 'javax.mail', name: 'mail', version: javaxMail
+    compile group: 'com.microsoft.ews-java-api', name: 'ews-java-api', version: ewsJava
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: appacheCommons
+    compile group: 'org.apache.poi', name: 'poi', version: poi
+
+    compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.888'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-sts', version: '1.11.888'
+
+    //DATA Source
+    compile group: 'org.springframework', name: 'spring-jdbc', version: springJDBC
+    compile group: 'com.zaxxer', name: 'HikariCP', version: zaxxerHikariCP
+    compile group: 'mysql', name: 'mysql-connector-java', version: mySQLConnector
+
+    implementation('org.springframework.boot:spring-boot-configuration-processor')
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
+    testCompile group: 'junit', name: 'junit', version: junit
+    testCompile group: 'org.spockframework', name: 'spock-core', version: spockCore
+    testCompile group: 'org.spockframework', name: 'spock-spring', version: spockSpring
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude module: 'junit'
+    }
+
+    testImplementation('org.junit.jupiter:junit-jupiter-api')
+    testImplementation('org.junit.jupiter:junit-jupiter-params')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
+}
