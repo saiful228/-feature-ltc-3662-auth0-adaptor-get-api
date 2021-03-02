@@ -22,6 +22,9 @@ class Logger {
         log.info("$LOG_TITLE\n[ERROR]: $error\n")
     }
 
+    def static logWarning(String msg) {
+        log.info("$LOG_TITLE\n[WARNING]: $msg\n")
+    }
 
     static def logEventValidationError(String validationField, def expectedResult, def actualResult) {
         String errorMessage = "\n\tExpected $validationField: ${expectedResult.toString()}"

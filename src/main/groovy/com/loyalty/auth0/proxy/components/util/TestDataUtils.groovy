@@ -166,4 +166,13 @@ class TestDataUtils {
         formatName <<= name.substring(1).toLowerCase()
         formatName
     }
+
+    static String getRandomPassword(Integer length=11) {
+        String password = ""
+        password <<= getRandomString(2).toUpperCase()
+        password <<= getRandomStringNumber(2)
+        password <<= getRandomString(length - 4)
+        password
+    }
+
 }

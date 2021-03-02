@@ -22,17 +22,34 @@ class GetTokenClient implements BaseHttpClient {
     @Value ('${loyalty.auth-api-get-token.client_secret}')
     String clientSecretConfig
 
+    @Value ('${loyalty.auth-api-get-token.client_id_create}')
+    String clientIdCreate
+
+    @Value ('${loyalty.auth-api-get-token.client_secret_create}')
+    String clientSecretCreate
+
+
     AuthResponse sendRequest(AuthRequest request) {
         AuthResponse authResponse = new AuthResponse()
         authResponse.setHttpResponse(send(request))
         authResponse
     }
 
-    AuthResponse getToken() {
+    AuthResponse getAccessToken() {
         AuthRequest request = new AuthRequest()
         request.clientId = Encryptor.decrypt(clientIdConfig)
         request.clientSecret = Encryptor.decrypt(clientSecretConfig)
         request.audience = Audience.WEB_COLLECTOR.getValue()
+        request.grantType = GrantType.CLIENT_CREDENTIALS.getValue()
+        sendRequest(request)
+    }
+
+
+    AuthResponse getCreateToken() {
+        AuthRequest request = new AuthRequest()
+        request.clientId = Encryptor.decrypt(clientIdCreate)
+        request.clientSecret = Encryptor.decrypt(clientSecretCreate)
+        request.audience = Audience.CREATE_TEST_DATA.getValue()
         request.grantType = GrantType.CLIENT_CREDENTIALS.getValue()
         sendRequest(request)
     }
