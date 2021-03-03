@@ -38,7 +38,7 @@ class GetInfoRequest {
     }
 
     HttpGet getRequest(String uri) {
-        String fullUri = uri + "/" + cardNumber
+        String fullUri = uri + cardNumber
         HttpGet request = new HttpGet(fullUri)
         request.addHeader(HttpHeaders.CONTENT_TYPE, "application/json")
         request.addHeader(HttpHeaders.ACCEPT_CHARSET, "utf-8")

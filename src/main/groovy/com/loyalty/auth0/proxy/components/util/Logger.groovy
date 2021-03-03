@@ -42,7 +42,10 @@ class Logger {
 
     static def logHttpRequest(def request) {
         String logMsg = "URI: ${request.getURI()}\n"
-        logMsg <<= "Body Parameters: ${EntityUtils?.toString(request.getEntity())}"
+        try {
+            logMsg <<= "Body Parameters: ${EntityUtils?.toString(request.getEntity())}"
+        }
+        catch (Exception e) {}
         logMessage(logMsg)
     }
 

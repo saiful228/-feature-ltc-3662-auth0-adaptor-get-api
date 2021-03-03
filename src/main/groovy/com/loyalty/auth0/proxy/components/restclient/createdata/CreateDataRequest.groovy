@@ -4,14 +4,8 @@ import com.loyalty.auth0.proxy.components.constant.Constants
 import com.loyalty.auth0.proxy.components.util.TestDataUtils
 import org.apache.http.HttpEntity
 import org.apache.http.HttpHeaders
-import org.apache.http.NameValuePair
-import org.apache.http.client.entity.UrlEncodedFormEntity
-import org.apache.http.client.methods.HttpGet
 import org.apache.http.client.methods.HttpPost
 import org.apache.http.entity.ByteArrayEntity
-import org.apache.http.message.BasicNameValuePair
-
-import java.nio.charset.StandardCharsets
 
 //import org.springframework.http.HttpEntity
 
@@ -36,7 +30,6 @@ class CreateDataRequest {
     String toJson() {
         TestDataUtils.mapToJson(getBodyMap())
     }
-
 
     Map getBodyMap () {
         Map bodyMap = [
@@ -66,7 +59,7 @@ class CreateDataRequest {
         this.email = TestDataUtils.getRandomValidEmail()
         this.emailVerified = true
         this.blocked = false
-        this.userId = Constants.USER_ID_PREFIX + cardNumber
+        this.userId = Constants.USER_ID_PREFIX_CREATE + cardNumber
         this.connection = Constants.DEFAULT_CONNECTION_CREATE_DATA
         this.password = TestDataUtils.getRandomPassword()
     }

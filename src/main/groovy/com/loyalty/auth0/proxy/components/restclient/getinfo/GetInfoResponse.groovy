@@ -3,6 +3,7 @@ package com.loyalty.auth0.proxy.components.restclient.getinfo
 import com.loyalty.auth0.proxy.components.util.TestDataUtils
 import groovy.json.JsonSlurper
 import org.apache.http.HttpResponse
+import org.apache.http.HttpStatus
 
 class GetInfoResponse {
     HttpResponse httpResponse
@@ -22,6 +23,8 @@ class GetInfoResponse {
 
     Integer status
     String body
+
+    String errorMessage
 
     @Override
     String toString() {
@@ -52,25 +55,22 @@ class GetInfoResponse {
         this.httpResponse = response
         this.body = TestDataUtils.getResponseBody(httpResponse)
         this.status = httpResponse.getStatusLine().getStatusCode()
-        parseResponse(body)
+        if(status == HttpStatus.SC_OK ) {
+            parseResponse(body)
+        }
+
     }
 
     def parseResponse(String jsonString) {
         JsonSlurper parser = new JsonSlurper()
         def result = parser.parseText(jsonString)
-        this.type = result.type
-        this.userId = result.user_id
-        this.username = result.username
-        this.email = result.email
-        this.emailVerified = result.email_verified
-        this.createdAt = result.created_at
-        this.updatedAt = result.updated_at
-        this.lastIp = result.lastIp
-        this.lastLogin = result.last_login
-        this.loginCount = result.logins_count
-        this.blocked = result.blocked
-        this.metaDataKey = result.meta_data.key
-        this.metaDataValue = result.meta_data.value
+        this.type = result.getAt("users").getAt("type").getAt(0)
+        this.userId = result.getAt("users").getAt("user_id").getAt(0)
+        this.email = result.getAt("users").getAt("email").getAt(0)
+        this.emailVerified = result.getAt("users").getAt("email_verified").getAt(0)
+        this.createdAt = result.getAt("users").getAt("created_at").getAt(0)
+        this.updatedAt = result.getAt("users").getAt("updated_at").getAt(0)
     }
+
 
 }

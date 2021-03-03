@@ -18,9 +18,7 @@ class CreateDataClient implements BaseHttpClient {
     @Value ('${loyalty.auth-create-client-api.path}')
     String pathConfig
 
-
     CreateDataRequest currentRequest
-
 
     def generateNewTestDataSet(String token){
         for(int i=0; i < 20; i++ ) {
@@ -28,7 +26,7 @@ class CreateDataClient implements BaseHttpClient {
             currentRequest.setDefaultValues(token)
             try{
                 HttpResponse response = sendRequest(currentRequest)
-                if ( response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                if ( response.getStatusLine().getStatusCode() == HttpStatus.SC_CREATED) {
                     break
                 }
             }
