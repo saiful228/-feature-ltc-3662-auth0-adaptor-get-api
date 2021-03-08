@@ -1,5 +1,6 @@
 package com.loyalty.auth0.proxy.components.restclient.gettoken
 
+import com.loyalty.auth0.proxy.components.constant.Channel
 import com.loyalty.auth0.proxy.components.util.TestDataUtils
 import org.apache.http.HttpHeaders
 import org.apache.http.NameValuePair
@@ -17,6 +18,7 @@ class AuthRequest {
     String clientId
     String audience
     String clientSecret
+    String channel = Channel.WEB.getValue()
 
 
     @Override
@@ -51,6 +53,7 @@ class AuthRequest {
         request.addHeader(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded")
         request.addHeader(HttpHeaders.ACCEPT_CHARSET, "utf-8")
         request.addHeader(HttpHeaders.ACCEPT, "*/*")
+        request.addHeader("channel", channel)
         request.setEntity(entity)
         request
     }
