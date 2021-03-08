@@ -5,6 +5,7 @@ import groovy.json.JsonOutput
 
 class ErrorMessageUtil {
     String message
+    String errorCode
 
 
     @Override
@@ -21,4 +22,5 @@ class ErrorMessageUtil {
             ]
         )
     }
+
 }

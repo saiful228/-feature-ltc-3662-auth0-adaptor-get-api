@@ -65,5 +65,5 @@ class GetInfoSpec extends BaseSpecification {
         and: "Actual error message matches expected"
         GetInfoValidator.validateStringValues(getInfoResponse.body, expectedErrorMessage, "Error message")
     }
-
+    
 }
