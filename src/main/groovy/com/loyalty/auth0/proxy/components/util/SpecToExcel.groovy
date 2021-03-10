@@ -11,44 +11,31 @@ import org.apache.poi.ss.usermodel.Workbook
 class SpecToExcel {
 
     static def update(String inputFolder, String outputFolder) throws Exception {
-
-
         Logger.logMessage(inputFolder)
         Logger.logMessage(outputFolder)
 
         def listOfFiles = []
         def dir = new File(inputFolder)
-
         dir.eachFile {file -> listOfFiles << file}
-
 
         for (int i = 0; i < listOfFiles.size(); i++) {
             scriptToTestCase( listOfFiles[i], outputFolder )
         }
-
     }
 
-
     static void scriptToTestCase(File file, String outputPath) {
-
         Logger.logMessage(file.path.toString())
-
         if(file.isFile()) {
             File inputFile = new File(file.path)
             String [] lines = inputFile.readLines()
             String tmpLine
-
             Workbook wb = new HSSFWorkbook()
             Sheet sheet = wb.createSheet()
-
             String outputFileName = outputPath + "\\" +  file.name.split("\\.")[0] + "_TestCases.xls"
 
             Logger.logMessage(outputFileName)
 
             FileOutputStream fileOut = new FileOutputStream(outputFileName);
-
-
-
             int rowCounter = 0
             lines.each {
                 if (lineContainsKeyWord(it)) {
@@ -62,22 +49,16 @@ class SpecToExcel {
                     else {
                         tmpLine = it
                     }
-
                     row = sheet.createRow(rowCounter++)
                     addLineToTheWorkBook(row, tmpLine)
                 }
-
             }
-
             wb.write(fileOut)
             fileOut.close()
         }
     }
 
-
     static def addLineToTheWorkBook(Row row, String tmpLine) {
-//        println tmpLine
-
         Cell cell = row.createCell(0)
         cell.setCellValue(tmpLine.split(":")[0] + ":")
         cell = row.createCell(1)
@@ -99,14 +80,11 @@ class SpecToExcel {
         keyWords.add("setup:")
         keyWords.add("expect:")
         keyWords.add("where:")
-
         keyWords.each {
             if (line.contains(it)) {
                 result = true
             }
         }
-
         result
     }
-
 }
