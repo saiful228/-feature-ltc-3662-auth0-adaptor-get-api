@@ -56,6 +56,7 @@ class GetInfoSpec extends BaseSpecification {
     def "When valid request with invalid access token sent to Get Info end point API returns expected response in JSON format" () {
         given: "Access token is invalid"
         accessToken = "BlahBlahBlah"
+
         and: "Expected error message is generated"
         String expectedErrorMessage = new ErrorMessageUtil(message: ErrorMessage.UNATHORIZED.getValue()).getGetInfoError()
         when: "Get Info request sent to get info end point"

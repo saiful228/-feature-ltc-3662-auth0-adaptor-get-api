@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 import spock.lang.Specification
 
-@ActiveProfiles("dev")
+@ActiveProfiles("int")
 @SpringBootTest(classes = TestApplication)
 class BaseSpecification extends Specification {
 

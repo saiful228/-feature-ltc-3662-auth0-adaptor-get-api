@@ -33,9 +33,19 @@ loyalty:
     email: ${EMAIL_USER}
     password: ${EMAIL_PASSWORD}
   auth-api-get-token:
-    uri: https://DIfferent_URL
-    client_id: Different
-    client_secret: DifferemtAsWell
+    uri: https://oauth-int.airmiles.ca/oauth/token
+    client_id: HaFTqp8GzG29IythEbx5N+tA6OKmRdnc2r1aO5MQfyErDUOlZ1NNSZOn0JwRjbTyozoZuDSf8EUJ2SP1SQw6eUa4h/+QMv71GgFnOyDsykscMAF1LHHreLVT6mbRqFK9Nw6UW//0hFrfOqgGicr1OUoCaG07szBdVdCL9atvDAPOlA53ndOlYSfvfH6YqQpNw885pKnsIyBPFH/gnhdKD89dW8bqROoYIhrNO5VrE7rs5KiKumrqCCPtyaxU1jFAVBWnR9+UB8L80cs/yWp9z63OE7aOyJqydGohAlyUzvPkZbvDQ2VXrlRvvCnS7dYCtDeED14o6V34gjN6IeSVPg==
+    client_secret: L3iyUFnLK95n4ZitP0LXbSHXemQWfJYyP2yT6DZpNP84Nx3vtXupxmNbzYVqUTAMQL0rqxLFCLr+rozQ1mX6kMP5be/cGw+egWBhikllzbxD76V1CToC5SouUj+Sv9shWQxat9COF8aMo/MGz+b+vwTKJpWhwj8sSJ8LbJEVrdQIR5M6BiPFIMRfc9/P7tO+LnJw/GEuHQp9zh0nrmtN8Cw+S/uQ58tPAoo4u01sc8x7NPZVrje/LjQ40duNTdUxnTLobLwMxUR4hL/O3Z2w5GFLUW3Cq90ABFNUMcH4WBABu+iYhWvDnaWFLKwdZC5a6rAg85/8WHzda6WExtyVqA==
+    audience: auth0-profile-mgmt-adapter
+    client_id_create: CfV9kR46J695DtWdrIByfLBsSmvmEajzID7GEyaLAVusqjesVQ2I70PdpthJmlmNcVtB7MBYPKRANil1rLB+4/7/GRgjiLw8ZXkWnHQ7TIHSU4CZds2xR/WheM2toc8/OpZXWcNVfAuRM+u7fRt6HRapDfPIStf2Xp1eYe6E50WPmkKAffmpY8Z48ihEcoyYSBahpJfnD9PdojYb6CmgUHPYII/cOJMRHnMo3Nm3MoCFCghEJgnVR9DnL1HcDegRLKiwarIzSD7M1SNfD5p1p0gmksfu9RuWiKVjt/WuybffgNCmBtqN47MtNJs1uP3INAV98AOX99lnEd4ttV+FiA==
+    client_secret_create: h87PeerHw+VGW1AcQjclWPcwEURL/m7ZtBt7CZ8aL9UenikJy1BkKRrxLhNLtmn6jz2iUczbNeJcchpzUowb6c9TpYUvzjbBngG1r/IBYZq3jS0MfPjaYpS0TMMrYijdN5hBk0KW5eixcalf+Q8X2wnUIABmyZiVKCwZxUsXjLgT8Rx4RxKkZTW7JTfk4gEAjaQIc/p9wHKLAZMEum3lFUDSclMGpS0gPmM1UBRK3fhc6/uF7sudFdC6GXUXVYvzFatrGFx2Cj5U2CthMBelv45g744ad+v3cJGPZuJI+qGsTH1HHOewgQGO8M4RvW9uyAMHYNmOSKgBP4PcQ8TwXw==
+    audience_create: https://airmiles-v2-int.airmiles-v2-dev.auth0.com/api/v2/
+  auth-create-client-api:
+    uri: https://oauth-int.airmiles.ca
+    path: /api/v2/users
+  auth-proxy-api:
+    uri: https://localhost:8088
+    get-info-path: /auth0-idp/users/
 
 logging:
   level:

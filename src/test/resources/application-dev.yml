@@ -36,8 +36,10 @@ loyalty:
     uri: https://oauth-dev.airmiles.ca/oauth/token
     client_id: W91kNFPpJWJ99k94JOVndyW9d+OUfEjVwJj8mdZgy3XUOdvTz0eHq9WsJUug9Dzt1pSenz4dLlghtEYt4eml1fQfhYuW10IHTzCjCnNZ+8dFaec19h7+X5JWxe7nDeqXvrUi4q6rfepuF/2BSKNtSCe58TbSL4slToi+1jKCN/8IvnXeH4L53ZfRWXs15qPyv3UEIFwWtiTjUbeDZvNps9N0/h/MxK6nKMM6XCPzZXM2QlMjssOxC1kfJ/Tm6PsZLmpSf06D7tP44/ZQJ2xXrxR+mwVZ37LuDeWjho/5GArDb/MlB6wy1Qt3wvVIke1csykrAqDolTQw8VrTeyQSjQ==
     client_secret: HAP6+wQUZUdd05XxLKx6a/NeKpjgQh9ePoFIEol/5UBhGhist28735VR2wN/DSOCOIP9r2PcE3h3elBQ8HegFZZdiF53SbDEi1Njbj2wvXkGRc73b6CUEs+wZRrEHy6+xMP7uY/z75hB51i9ymRQq/5X8Beied92Nff9QjJejjQl+MnIsgDr7gr5LRFtfgKx9wrZ02BsrJ+3QWiwgkC2cNG17qsMESZQbFTd3zIqB2TnkX54Fa73Lx3+h5OdlpI9i/RK2W3QSchkecI0GHFxX/wttzvaQPRt0cTmxq6Sb56Jc/YpCHMF10hF7bS/rx3K2FAYmif/aDrhQUEvGB/Ykg==
+    audience: airmiles-web-collector
     client_id_create: Q/sz1nEM5QKMOp4tJjOSO9T5CSVsy+kABVRZgD21Y50Q2cGRPaac8fEm6d43H+ZQEjBavmowX1I7ZFNFW7t9wgVpgHPePpxBTlbkS2NTOGPJhAynQbOvXvRadFezibSLwU6McxU3kQ9FzBijX1CuI+vZnBCF76gStbjmezEBuZYwexBMy+AIYejgPnq78moz80TA9RM6ogvWVnw2HZRy1/ttiw6ga97GiM7AwJFSQdwCoJHGdyNBM+Rw2MPUwYeNbPmbGOBJgBsJd4QRZL49lSDeKo84Zut+GX3aYY62q/kQjopl6/UeayisPMGRO73IufsAAIIfhzwslG6tux9zDw==
     client_secret_create: Xnx5c55oKFOJhV1bYcPE2ikeXKD0lD/922zHnqLDBn1h2vVqQ8dgA4BWNrFoSedoVqQzC/Vfg+htHirK7rhnrsqMjx2G7twKdhrfDQw/uUncmMB2wFmXOQ2eRVo21IKvKOGyN0q4qVKukJlCGqdvwsoJ9jadkpWpj1buMtjLBJIQ0HyV8RZ+N6fAjO9Oen0iXJkyfiwKXnQPuvob1Lq4NNheCNCDnAozL3OBN0GJQJ54NU1HNa/j/J43DQrRRFg173dj5JpU1mZ8RmiYt/LHVGDgbOsk/AOaIlyIC7Qc1OeoG7gqCzCznHtrNldxiYasCYVIbYPXF36CZAnZA9RzJQ==
+    audience_create: https://airmiles-v2-dev.airmiles-v2-dev.auth0.com/api/v2/
   auth-create-client-api:
     uri: https://oauth-dev.airmiles.ca
     path: /api/v2/users

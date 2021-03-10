@@ -22,12 +22,17 @@ class GetTokenClient implements BaseHttpClient {
     @Value ('${loyalty.auth-api-get-token.client_secret}')
     String clientSecretConfig
 
+    @Value ('${loyalty.auth-api-get-token.audience}')
+    String clientAudienceConfig
+
     @Value ('${loyalty.auth-api-get-token.client_id_create}')
     String clientIdCreate
 
     @Value ('${loyalty.auth-api-get-token.client_secret_create}')
     String clientSecretCreate
 
+    @Value ('${loyalty.auth-api-get-token.audience_create}')
+    String audienceCreate
 
     AuthResponse sendRequest(AuthRequest request) {
         AuthResponse authResponse = new AuthResponse()
@@ -39,7 +44,7 @@ class GetTokenClient implements BaseHttpClient {
         AuthRequest request = new AuthRequest()
         request.clientId = Encryptor.decrypt(clientIdConfig)
         request.clientSecret = Encryptor.decrypt(clientSecretConfig)
-        request.audience = Audience.WEB_COLLECTOR.getValue()
+        request.audience = clientAudienceConfig
         request.grantType = GrantType.CLIENT_CREDENTIALS.getValue()
         sendRequest(request)
     }
@@ -49,7 +54,7 @@ class GetTokenClient implements BaseHttpClient {
         AuthRequest request = new AuthRequest()
         request.clientId = Encryptor.decrypt(clientIdCreate)
         request.clientSecret = Encryptor.decrypt(clientSecretCreate)
-        request.audience = Audience.CREATE_TEST_DATA.getValue()
+        request.audience = audienceCreate
         request.grantType = GrantType.CLIENT_CREDENTIALS.getValue()
         sendRequest(request)
     }
@@ -59,6 +64,4 @@ class GetTokenClient implements BaseHttpClient {
         Logger.logHttpRequest(postRequest)
         sendBasicPostRequest(postRequest)
     }
-        //org.apache.http.util.EntityUtils.toString(sendBasicPostRequest(postRequest).getEntity())
-
 }
