@@ -22,6 +22,9 @@ class Logger {
         log.info("$LOG_TITLE\n[ERROR]: $error\n")
     }
 
+    def static logWarning(String msg) {
+        log.info("$LOG_TITLE\n[WARNING]: $msg\n")
+    }
 
     static def logEventValidationError(String validationField, def expectedResult, def actualResult) {
         String errorMessage = "\n\tExpected $validationField: ${expectedResult.toString()}"
@@ -39,7 +42,10 @@ class Logger {
 
     static def logHttpRequest(def request) {
         String logMsg = "URI: ${request.getURI()}\n"
-        logMsg <<= "Body Parameters: ${EntityUtils?.toString(request.getEntity())}"
+        try {
+            logMsg <<= "Body Parameters: ${EntityUtils?.toString(request.getEntity())}"
+        }
+        catch (Exception e) {}
         logMessage(logMsg)
     }
 
