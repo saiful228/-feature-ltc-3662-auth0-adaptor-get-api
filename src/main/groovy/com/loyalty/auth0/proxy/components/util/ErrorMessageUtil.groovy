@@ -36,5 +36,11 @@ class ErrorMessageUtil {
         )
     }
 
-
+    String getProfileNotFoundError() {
+        JsonOutput.toJson(
+                [
+                        error: message
+                ]
+        )
+    }
 }

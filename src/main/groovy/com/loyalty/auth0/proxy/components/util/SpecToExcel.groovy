@@ -7,6 +7,8 @@ import org.apache.poi.ss.usermodel.Row
 import org.apache.poi.ss.usermodel.Sheet
 import org.apache.poi.ss.usermodel.Workbook
 
+import java.nio.file.Paths
+
 @Slf4j
 class SpecToExcel {
 
@@ -31,7 +33,7 @@ class SpecToExcel {
             String tmpLine
             Workbook wb = new HSSFWorkbook()
             Sheet sheet = wb.createSheet()
-            String outputFileName = outputPath + "\\" +  file.name.split("\\.")[0] + "_TestCases.xls"
+            String outputFileName = Paths.get(outputPath, file.name.split("\\.")[0] + "_TestCases.xls")
 
             Logger.logMessage(outputFileName)
 

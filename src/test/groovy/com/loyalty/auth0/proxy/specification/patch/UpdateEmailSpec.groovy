@@ -16,12 +16,12 @@ import org.apache.http.HttpResponse
 import org.apache.http.HttpStatus
 import org.springframework.beans.factory.annotation.Autowired
 
-class UpdateProfileSpec extends BaseSpecification {
+class UpdateEmailSpec extends BaseSpecification {
 
     @Autowired
     PatchClient updateClient
 
-    def "TC-1.(Update Email) When valid request with valid access token sent, end point API returns expected status code." () {
+    def "TC-1. When valid request with valid access token sent, end point API returns expected status code." () {
         given: "Test data for collector exists in DB"
         and: "There is a new email for the collector."
         String newEmail = TestDataUtils.getRandomValidEmail()
@@ -42,9 +42,8 @@ class UpdateProfileSpec extends BaseSpecification {
     }
 
 
-    def "TC-2N.(Update Email) When valid request contains invalid email format (email does not contain prefix - @abc.com) sent, API returns expected error response in JSON format" () {
-        given: "Access token is expired"
-        and: "There is a new invalid format email for the collector."
+    def "TC-2N. When valid request contains invalid email format (email does not contain prefix - @abc.com) sent, API returns expected error response in JSON format" () {
+        given: "New email collector has wrong formatting and does not contain prefix."
         String newEmail = "@abc.com"
         and: "Expected error message is generated"
         String expectedErrorMessage = new ErrorMessageUtil(
@@ -54,15 +53,14 @@ class UpdateProfileSpec extends BaseSpecification {
                 .getBadRequestError()
         when: "Update Info request sent to the end point"
         HttpResponse response = updateClient.sendUpdateInfoRequest(createDataClient.currentRequest.cardNumber, newEmail, accessToken)
-        then: "Response contains success status (404 Bad Request)"
+        then: "Response contains success status (400 Bad Request)"
         BaseValidator.validateNumericValues(response.getStatusLine().getStatusCode(), HttpStatus.SC_BAD_REQUEST, "Update Info Response status")
         and: "Actual error message matches expected"
         BaseValidator.validateStringValues(TestDataUtils.getResponseBody(response), expectedErrorMessage, "Error message")
     }
 
-    def "TC-3N.(Update Email) When valid request contains invalid email format (email does not contain @ - abc-abc.com) sent, API returns expected error response in JSON format" () {
-        given: "Access token is expired"
-        and: "There is a new invalid format email for the collector."
+    def "TC-3N. When valid request contains invalid email format (email does not contain @ - abc-abc.com) sent, API returns expected error response in JSON format" () {
+        given: "New email collector has wrong formatting and does not contain '@'."
         String newEmail = "abc-abc.com"
         and: "Expected error message is generated"
         String expectedErrorMessage = new ErrorMessageUtil(
@@ -72,15 +70,14 @@ class UpdateProfileSpec extends BaseSpecification {
                 .getBadRequestError()
         when: "Update Info request sent to the end point"
         HttpResponse response = updateClient.sendUpdateInfoRequest(createDataClient.currentRequest.cardNumber, newEmail, accessToken)
-        then: "Response contains success status (404 Bad Request)"
+        then: "Response contains success status (400 Bad Request)"
         BaseValidator.validateNumericValues(response.getStatusLine().getStatusCode(), HttpStatus.SC_BAD_REQUEST, "Update Info Response status")
         and: "Actual error message matches expected"
         BaseValidator.validateStringValues(TestDataUtils.getResponseBody(response), expectedErrorMessage, "Error message")
     }
 
-    def "TC-4N.(Update Email) When valid request contains invalid email format (email does not contain domain - abc@abc) sent, API returns expected error response in JSON format" () {
-        given: "Access token is expired"
-        and: "There is a new invalid format email for the collector."
+    def "TC-4N. When valid request contains invalid email format (email does not contain domain - abc@abc) sent, API returns expected error response in JSON format" () {
+        given: "New email collector has wrong formatting and does not contain domain."
         String newEmail = "abc@abc"
         and: "Expected error message is generated"
         String expectedErrorMessage = new ErrorMessageUtil(
@@ -90,13 +87,30 @@ class UpdateProfileSpec extends BaseSpecification {
                 .getBadRequestError()
         when: "Update Info request sent to the end point"
         HttpResponse response = updateClient.sendUpdateInfoRequest(createDataClient.currentRequest.cardNumber, newEmail, accessToken)
-        then: "Response contains success status (404 Bad Request)"
+        then: "Response contains success status (400 Bad Request)"
         BaseValidator.validateNumericValues(response.getStatusLine().getStatusCode(), HttpStatus.SC_BAD_REQUEST, "Update Info Response status")
         and: "Actual error message matches expected"
         BaseValidator.validateStringValues(TestDataUtils.getResponseBody(response), expectedErrorMessage, "Error message")
     }
-    
-    def "TC-5N.(Update Email) When valid request with invalid access token sent, API returns expected error response in JSON format" () {
+
+    def "TC-5N. When valid request contains card number that does not exist sent, API returns expected error response in JSON format" () {
+        given: "There is a new valid email for the collector."
+        String newEmail = TestDataUtils.getRandomValidEmail()
+        and: "There is a collector number that does not exist in DB."
+        String cardNumber = TestDataUtils.getRandomCardNumber()
+        and: "Expected error message is generated"
+        String expectedErrorMessage = new ErrorMessageUtil(
+                message: ErrorMessage.PROFILE_NOT_FOUND.getValue())
+                .getProfileNotFoundError()
+        when: "Update Info request sent to the end point"
+        HttpResponse response = updateClient.sendUpdateInfoRequest(cardNumber, newEmail, accessToken)
+        then: "Response contains success status (404 Not Found)"
+        BaseValidator.validateNumericValues(response.getStatusLine().getStatusCode(), HttpStatus.SC_NOT_FOUND, "Update Info Response status")
+        and: "Actual error message matches expected"
+        BaseValidator.validateStringValues(TestDataUtils.getResponseBody(response), expectedErrorMessage, "Error message")
+    }
+
+    def "TC-6N. When valid request with invalid access token sent, API returns expected error response in JSON format" () {
         given: "Access token is invalid"
         accessToken = "InvalidAccessToken"
         and: "There is a new email for the collector."
@@ -111,7 +125,7 @@ class UpdateProfileSpec extends BaseSpecification {
         BaseValidator.validateStringValues(TestDataUtils.getResponseBody(response), expectedErrorMessage, "Error message")
     }
 
-    def "TC-6N.(Update Email) When valid request with expired access token sent, API returns expected error response in JSON format" () {
+    def "TC-7N. When valid request with expired access token sent, API returns expected error response in JSON format" () {
         given: "Access token is expired"
         accessToken = Constants.EXPIRED_TOKEN
         Logger.logMessage("Expired token = $accessToken")
