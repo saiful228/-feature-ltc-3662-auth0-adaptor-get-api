@@ -6,8 +6,15 @@ import org.apache.http.client.HttpClient
 import org.apache.http.client.methods.HttpPost
 import org.apache.http.conn.ssl.NoopHostnameVerifier
 import org.apache.http.impl.client.HttpClientBuilder
+import org.springframework.beans.factory.annotation.Value
 
 trait BaseHttpClient {
+
+    @Value ('${loyalty.auth-proxy-api.uri}')
+    String uriConfig
+
+    @Value ('${loyalty.auth-proxy-api.path}')
+    String pathConfig
 
     final static int RETRY_TIMEOUT_MILLISECONDS = 1000
 

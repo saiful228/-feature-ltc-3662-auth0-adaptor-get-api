@@ -44,8 +44,8 @@ loyalty:
     uri: https://oauth-int.airmiles.ca
     path: /api/v2/users
   auth-proxy-api:
-    uri: https://localhost:8088
-    get-info-path: /auth0-idp/users/
+    uri: https://int.airmilesapis.ca
+    path: /auth0-idp/users/
 
 logging:
   level:

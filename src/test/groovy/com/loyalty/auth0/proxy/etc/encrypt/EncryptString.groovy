@@ -10,7 +10,6 @@ class EncryptString extends Specification{
         setup: "Encrypt String"
 
         String myString = "pFLz6hWpRtAXx1X85x5nzbSud7XZX1XEOwoKIWkvLljgCNeTxICqw11HXHwu4pkb"
-
         Logger.logMessage("Encrypted String: " + Encryptor.encrypt(myString))
         expect: "Done"
         true

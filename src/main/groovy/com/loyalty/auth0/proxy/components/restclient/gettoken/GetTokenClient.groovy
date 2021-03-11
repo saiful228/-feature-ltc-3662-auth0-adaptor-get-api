@@ -1,6 +1,5 @@
 package com.loyalty.auth0.proxy.components.restclient.gettoken
 
-import com.loyalty.auth0.proxy.components.constant.Audience
 import com.loyalty.auth0.proxy.components.constant.GrantType
 import com.loyalty.auth0.proxy.components.restclient.BaseHttpClient
 import com.loyalty.auth0.proxy.components.util.Encryptor
