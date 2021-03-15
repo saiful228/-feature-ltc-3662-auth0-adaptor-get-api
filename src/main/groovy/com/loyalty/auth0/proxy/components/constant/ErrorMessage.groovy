@@ -5,7 +5,8 @@ enum ErrorMessage {
     UNATHORIZED("Unauthorized"),
     FORBIDDEN("User is not authorized to access this resource with an explicit deny"),
     EMAIL_INVALID("the email attribute in the request is invalid"),
-    PROFILE_NOT_FOUND("Profile Not Found")
+    PROFILE_NOT_FOUND("Profile Not Found"),
+    CARD_NUMBER_TOO_LONG("collector id must be a 11 digit number")
 
     private final String value
 

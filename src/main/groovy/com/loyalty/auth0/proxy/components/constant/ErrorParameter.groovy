@@ -2,7 +2,8 @@ package com.loyalty.auth0.proxy.components.constant
 
 enum ErrorParameter {
 
-    EMAIL("email")
+    EMAIL("email"),
+    ID("id")
 
     private final String value
 
