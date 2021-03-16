@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f670258-be6b-4623-8fb4-1e354955de07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/groovy/com/loyalty/auth0/proxy/etc/encrypt/EncryptString.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/groovy/com/loyalty/auth0/proxy/etc/encrypt/EncryptString.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application-int.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-int.yml" afterDir="false" />
-    </list>
+    <list default="true" id="7f670258-be6b-4623-8fb4-1e354955de07" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -363,7 +356,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615834050979</updated>
       <workItem from="1615834055609" duration="1107000" />
-      <workItem from="1615867005720" duration="684000" />
+      <workItem from="1615867005720" duration="1567000" />
     </task>
     <servers />
   </component>
@@ -388,11 +381,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1791000" />
+    <option name="totallyTimeSpent" value="2674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="841" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3404864" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -405,14 +397,14 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40053403" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40053403" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.24455446" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32977304" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32977304" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Gradle View" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
