@@ -9,7 +9,7 @@ class EncryptString extends Specification{
     def "Encrypt String" () {
         setup: "Encrypt String"
 
-        String myString = "pFLz6hWpRtAXx1X85x5nzbSud7XZX1XEOwoKIWkvLljgCNeTxICqw11HXHwu4pkb"
+        String myString = "Airmiles80!"
         Logger.logMessage("Encrypted String: " + Encryptor.encrypt(myString))
         expect: "Done"
         true
